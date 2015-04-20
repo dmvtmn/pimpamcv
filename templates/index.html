@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block styles %}
+
+<link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block navbar %}
+
+{% include 'navbar.html' %}
+
+{% endblock navbar %}
+
+
+{% block carousel %}
+
+{% include 'carousel.html' %}
+
+{% endblock carousel %}
+
+    {% block content %}
+    <!-- Three columns of text below the carousel -->
+    <div class="page-header" id="como-funciona">
+  <h1>PimPamCV es un servício de revision de CVs <small>Tu CV en Inglés, perfecto!</small></h1>
+</div>
+          <div class="row">
+            <div class="col-lg-4">
+              <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+              <h2>Elige tu servicio</h2>
+              <p>Revision de CV, Revision de Cover Letter, o los dos!</p>
+              <p><a class="btn btn-default btn-lg btn-success" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+              <h2>Envianos tu CV o Cover</h2>
+              <p>Ademas la Web te proporciona un repositorio con modificaciones y ideas</p>
+              <p><a class="btn btn-default btn-lg btn-success" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+              <h2>Nuestros especialistas lo revisan</h2>
+              <p>Especialistas en Recursos Humanos y Bilingues / Nativos</p>
+              <p><a class="btn btn-default btn-lg btn-success" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+
+          <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Un CV ganador que te genera entrevistas!<span class="text-muted">Nuestros especialistas saben como</span></h2>
+          <p class="lead">Con PimPamCV subes tu CV, y nosotros nos ocupados de ello. Envianos tu version actual</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Una Cover Letter que funciona! <span class="text-muted">Pruébanos!</span></h2>
+          <p class="lead">Presentate de la mejor forma possible, con un léxico correcto, profesional y educado. Nosotros te enseñamos como!</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+      <!-- PLANES / SERVICIOS -->
+
+      <div class="page-header" id="como-funciona">
+    <h1>Elige uno de nuestros servícios!<small>Nosotros nos ocupamos de todo!</small></h1>
+    </div>
+
+      <div class="row" id="servicios">
+        {% for service in services %}
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.price }} Eur</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+      {% endfor %}
+    </div>
+
+    <hr class="featurette-divider">
+
+<!-- FIN PLANES / SERVICIOS -->
+
+<!-- CONTACT US SECTION -->
+  <div class="row" id="contacto">
+    <div class="page-header" id="como-funciona">
+  <h1>Contacta con nosotros<small> te contestaremos cuanto antes</small></h1>
+  </div>
+    <form>
+  <div class="form-group">
+    <label for="ContactEmail">Tu email</label>
+    <input type="email" class="form-control" id="ContactEmail" placeholder="tu email">
+  </div>
+  <div class="form-group">
+    <label for="ContactName">Tu Nombre</label>
+    <input type="text" class="form-control" id="ContactName" placeholder="tu nombre">
+  </div>
+  <textarea class="form-control" rows="3"></textarea>
+  <button type="submit" class="btn btn-default">Enviar</button>
+</form>
+  </div>
+
+  <!--FIN CONTACT US SECTION -->
+
+
+
+    {% endblock %}
+
+{% block footer %}
+
+{% include 'footer.html' %}
+
+{% endblock %}
