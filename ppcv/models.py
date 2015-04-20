@@ -34,6 +34,8 @@ class Service(models.Model):
     updated=models.DateTimeField(auto_now_add=False, auto_now=True, null=True, blank=True)
     active= models.BooleanField(default=True)
 
+    #need to add method get_price()
+
     def __unicode__(self):
         return str(self.title)
 

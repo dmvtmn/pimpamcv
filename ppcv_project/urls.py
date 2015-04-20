@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'ppcv_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^review/$', include('ppcv.urls')),
+    url(r'^cart/$','checkout.views.view', name='cart'),
     url(r'^$', 'ppcv_project.views.index', name='index'),
     url(r'^admin/', include(admin.site.urls)),
 )
