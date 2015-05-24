@@ -85,16 +85,22 @@
 
       <div class="row" id="servicios">
         {% for service in services %}
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.price }} Eur</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
-      </div>
-    </div>
-  </div>
+          <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                {% if service.serviceimage.image %}
+                  <img class='img-responsive' src="{{ MEDIA_URL }}{{service.serviceimage.image}}" alt="..."/>
+                {% else %}
+                  <img class='img-responsive' src='{% static "img/symbol1.1.svg" %}' alt="..."/>
+                {% endif %}  
+                  <div class="caption">
+                        <h3>Revisión {{ service.title }}</h3>
+                          <p>{{ service.price }} Eur</p>
+                            <p><a href="{{ service.get_absolute_url }}" class="btn btn-primary" role="button">Ver detalles</a></p>
+                            <!--<p><a href="{% url 'single_service' service.slug %}" class="btn btn-primary" role="button">Button</a></p> -->
+                            <!--<p><a href="/review/{{service.slug}}" class="btn btn-primary" role="button">Button</a></p> -->
+                    </div>
+              </div>
+          </div>
       {% endfor %}
     </div>
 
