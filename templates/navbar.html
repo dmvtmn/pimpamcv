@@ -7,13 +7,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Pim Pam CV</a>
+          <a class="navbar-brand" href="{% url 'index' %}">Pim Pam CV</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#como-funciona">como funciona?</a></li>
             <li><a href="#servicios">Servícios</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li class="active"><a href="{% url 'cart' %}">Tu carrito {{ request.session.cart_id }}</a></li>
           </ul>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="#">Entrar</a></li>

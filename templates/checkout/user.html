@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+
+{% include "ppcv/usr_nav.html" %}
+
+{% endblock navbar %}
+
+{% block content %}
+
+</br></br></br>
+<div class="page-header">
+  <h1>Tus pedidos<small>Subtext for header</small></h1>
+</div>
+
+{{ user.order_set.all }}
+
+{% endblock %}

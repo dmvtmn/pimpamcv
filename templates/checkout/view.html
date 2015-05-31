@@ -10,24 +10,40 @@
 {% endblock navbar %}
 
 {% block content %}
-<br>
-<br>
-<h1>Tu carriño</h1>
-
+<br/>
+<br/>
 <div class='col-sm-8 col-sm-offset-2'>
+
+{% if empty %}
+
+<h1 style='text-align:center;'>{{ empty_message }}</h1>
+
+{% else %}
+
+<h1>Tu carrito</h1>
+
 <table class='table'>
 <thead>
 <th>Servício</th>
 <th>Precio</th>
+<th></th>
 </thead>
 <tfoot>
   <tr>
   <td></td>
+  <td></td>
   <td>Total: {{ cart.total }}</td>
   </tr>
 </tfoot>
-<tr><td>{{ cart.service }}</td><td>{{ cart.service.price }}</td></tr>
+{% if cart.service %}
+<tr><td>{{ cart.service }}</td><td>{{ cart.service.price }}</td><td><a href='{% url "update_cart" cart.service.slug %}'>Quitar</a></td></tr>
+{% endif %}
 </table>
-</div>
 
+<br/>
+<a href='{% url "checkout" %}'>Suelta pasta!</a>
+
+{% endif %}
+
+</div>
 {% endblock content %}

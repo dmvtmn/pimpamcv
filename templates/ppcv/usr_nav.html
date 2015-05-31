@@ -17,6 +17,9 @@
           </ul>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="#">Desconexión</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="#">Account</a></li>
+            {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>

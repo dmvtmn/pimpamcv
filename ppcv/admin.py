@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, UsrDoc, Service, ServiceImage
+from .models import Category, UsrDoc, Service, ServiceImage, Revision, Post
 
 # Register your models here.
 
@@ -24,6 +24,17 @@ class UsrDocAdmin(admin.ModelAdmin):
         model = UsrDoc
 admin.site.register(UsrDoc,UsrDocAdmin)
 
+class RevisionAdmin(admin.ModelAdmin):
+    date_hierarchy = 'created'
+    search_fields = ['title']
+    list_display = ['__unicode__', 'user','title','updated']
+    list_filter = ['user', 'active']
+    readonly_fields = ['updated']
+
+    class Meta:
+        model = Revision
+admin.site.register(Revision,RevisionAdmin)
 
 admin.site.register(Category)
+admin.site.register(Post)
 admin.site.register(ServiceImage)

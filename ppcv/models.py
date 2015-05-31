@@ -14,10 +14,11 @@ class Category(models.Model):
         return self.name
 
 class UsrDoc(models.Model):
-    category = models.ForeignKey(Category, related_name='type',verbose_name="Tipo de documento", default=1, null=False, blank=True)
+    category = models.ForeignKey(Category, related_name='type',verbose_name="Tipo de documento",\
+                                                                default=1, null=False, blank=True)
     title = models.CharField(max_length=128)
     #views = models.IntegerField(default=0)
-    user = models.ForeignKey(User, related_name='owner', default=1, null=False, blank=True)
+    user = models.ForeignKey(User, related_name='autor', default=1, null=False, blank=True)
     attachment = models.FileField(upload_to='attachments', null=True, blank=True)
     description = models.TextField(null=True)
     timestamp=models.DateTimeField(auto_now_add=True, auto_now=False, null=True, blank=True) #added to DB
@@ -30,8 +31,9 @@ class UsrDoc(models.Model):
 class Service(models.Model):
     title = models.CharField(max_length=128)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=29.99)
+    description = models.CharField(max_length=2000, null=True, blank=True)
     sale_price = models.DecimalField(max_digits=10, decimal_places=2,null=True, blank=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True)# unique clause so that you have unique services
     timestamp=models.DateTimeField(auto_now_add=True, auto_now=False, null=True, blank=True)
     updated=models.DateTimeField(auto_now_add=False, auto_now=True, null=True, blank=True)
     active= models.BooleanField(default=True)
@@ -64,7 +66,9 @@ class ServiceImage(models.Model):
 class Revision(models.Model):
     title = models.CharField(max_length=120)
     description = models.CharField(max_length=2000, null=False, blank=False)
-    service = models.ForeignKey(Service,related_name='revision', default=1, null=False, blank=True)
+    service = models.OneToOneField(Service, related_name='revision')
+    indoc = models.ForeignKey(UsrDoc,related_name='doc inicial', default=1, null=True, blank=True)
+    outdoc = models.ForeignKey(UsrDoc,related_name='doc final', default=1, null=True, blank=True)
     created =  models.DateTimeField(auto_now=False, auto_now_add=True, null=False, blank=False)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False, null=True, blank=True)
     user = models.ForeignKey(User, related_name='lister', default=1, null=False, blank=True)
