@@ -35,6 +35,9 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+DEFAULT_FROM_EMAIL = "someemail@gmail.com"
+
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -46,6 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'ppcv',
     'checkout',
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -112,3 +116,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 from django.contrib.auth import get_user_model
+
+
+STRIPE_SECRET_KEY = "sk_test_X2LGo5tTwA80kjobLBsDML8K"
+STRIPE_PUBLISHABLE_KEY = "pk_test_2sRxMZk3IznjJT7ATQ6xtxgX"

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+
+{% include 'navbar.html' %}
+
+{% endblock navbar %}
+
+
+{% block content %}
+</br></br></br>
+<div class='col-sm-6 col-sm-offset-3' style='margin-top: 50px;'>
+<form method='POST' action=''>{% csrf_token %}
+  {{ form.as_p }}
+
+
+  <input type='submit' value='{% if submit_btn %}{{ submit_btn }}{% else %}Enviar{% endif %}' class='btn btn-default' />
+</form>
+
+</div>
+
+{% endblock %}

@@ -17,8 +17,13 @@
             <li class="active"><a href="{% url 'cart' %}">Tu carrito {{ request.session.cart_id }}</a></li>
           </ul>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Entrar</a></li>
-            <li role="presentation"><a href="#">Regístrate </a></li>
+            {% if request.user.is_authenticated %}
+            <li role="presentation" class="active"><a href='{% url "auth_logout" %}'>Desconexión</a></li>
+            <li><a href="#">Account</a></li>
+            {% else %}
+            <li role="presentation" class="active"><a href='{% url "auth_login" %}'>Entrar</a></li>
+            <li><a href="#">Regístrate</a></li>
+            {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -15,6 +15,9 @@ urlpatterns = patterns('',
     url(r'^cart/(?P<slug>[\w-]+)/$','checkout.views.update_cart', name='update_cart'),
     url(r'^$', 'ppcv_project.views.index', name='index'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/logout/$', 'accounts.views.logout_view', name = 'auth_logout'),
+    url(r'^accounts/login/$', 'accounts.views.login_view', name = 'auth_login'),
+    url(r'^accounts/register/$', 'accounts.views.registration_view', name = 'auth_register'),
 )
 
 if settings.DEBUG: #setting media url

@@ -1,0 +1,8 @@
+Hola {{ user }},
+por favor activa tu cuenta aqui:
+
+{{ activation_url }}
+
+Gracias
+
+ppcv
